@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 
 interface ContainerProps {
   isFocused: boolean;
-  isFilled: boolean;
+  isField: boolean;
 }
 
 export const Container = styled.div<ContainerProps>`
@@ -28,7 +28,7 @@ export const Container = styled.div<ContainerProps>`
     `}
 
   ${(props) =>
-    props.isFilled &&
+    props.isField &&
     css`
       color: #ff9000;
     `}

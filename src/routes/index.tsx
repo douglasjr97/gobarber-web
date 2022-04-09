@@ -9,6 +9,7 @@ const Rotas: React.FC = () => (
     <Routes>
       <Route index element={<SignIn />} />
       <Route path="/signup" element={<SignUp />} />
+      <Route path="/signin" element={<SignIn />} />
     </Routes>
   </BrowserRouter>
 );
