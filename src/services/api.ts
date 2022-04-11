@@ -1,8 +1,7 @@
-import axios from 'axios';
+import axios from "axios";
 
 const api = axios.create({
-    baseURL:"https://api.spacexdata.com/v3"
-})
+  baseURL: "http://localhost:3333",
+});
 
 export default api;
-
