@@ -9,27 +9,28 @@ import Button from "../../components/Button";
 import { Container, Content, Background } from "./styles";
 
 import logoImg from "../../assets/logo.svg";
+import getValidationErrors from "../../utils/getValidationErrors";
 
 const SignIn: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
 
   const handleSubmit = useCallback(async (data: object) => {
-    // try {
-    //   formRef.current?.setErrors({});
+    try {
+      formRef.current?.setErrors({});
 
-    //   const schema = Yup.object().shape({
-    //     email: Yup.string()
-    //       .required("E-mail é obrigatório")
-    //       .email("Digite um e-mail válido"),
-    //     password: Yup.string().required("Senha é obrigatória"),
-    //   });
+      const schema = Yup.object().shape({
+        email: Yup.string()
+          .required("E-mail é obrigatório")
+          .email("Digite um e-mail válido"),
+        password: Yup.string().required("Senha é obrigatória"),
+      });
 
-    //   await schema.validate(data, { abortEarly: false });
-    // } catch (err) {
-    //   const errors = getValidationErrors(err);
+      await schema.validate(data, { abortEarly: false });
+    } catch (err: any) {
+      const errors = getValidationErrors(err);
 
-    //   formRef.current?.setErrors(errors);
-    // }
+      formRef.current?.setErrors(errors);
+    }
     console.log(data);
   }, []);
 
